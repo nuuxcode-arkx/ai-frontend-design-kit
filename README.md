@@ -12,6 +12,10 @@ Read https://github.com/nuuxcode-arkx/ai-frontend-design-kit and follow its INST
 
 That is all. The agent installs the workflow, the design skills and a browser it can look through, for all your projects, then tells you what worked. You do not need to understand any of the tools. You need Node.js 22.20 or newer on the computer; if it is missing, the agent tells you.
 
+## EVERY JOB GETS ITS BEST TOOL
+
+The kit knows about 350 tools. Installing all of them would flood the agent, and installing six would waste the rest. So the agent does a **tool sweep** on every task: it walks a list of 43 jobs (direction, references, colors, fonts, components, icons, images, charts, motion, 3D, scroll, text effects, copy, checks and more), switches each job on or off from your words and your project, and fetches the right tool at the moment a job needs it. A landing page usually ends with 15 to 20 tools, each doing a different job. One tool per job, never two fighting over the same one. The receipt lists which tools were used and why.
+
 ## WHAT CHANGES AFTER INSTALL
 
 You ask for anything with a screen: a website, an app page, a dashboard, a quick HTML demo. You do not mention design. The agent now does this on its own:
@@ -36,7 +40,8 @@ The look this is built to avoid has a name, "AI slop": Inter font, purple gradie
 |---|---|---|
 | [INSTALL.md](INSTALL.md) | the agent | Step-by-step install it runs by itself |
 | [skills/frontend-kit/SKILL.md](skills/frontend-kit/SKILL.md) | the agent | The workflow: the 9-step chain, which tool to use when, and the receipt it must fill |
-| [skills/frontend-kit/catalog.md](skills/frontend-kit/catalog.md) | the agent | Every tool by step, with "use when", "advantage" and the install command |
+| [skills/frontend-kit/sweep.md](skills/frontend-kit/sweep.md) | the agent | The tool sweep: 43 jobs a screen can have, the signals that switch each one on, its first-choice tool, and how to get a tool at the moment it is needed |
+| [skills/frontend-kit/catalog.md](skills/frontend-kit/catalog.md) | the agent | Every tool by job. Each row has concrete signals (words you say, things seen in the code) and an example, the advantage, and the install command |
 | [skills/frontend-kit/effects.md](skills/frontend-kit/effects.md) | the agent | The default tool for each effect, plus working code for effects that need no library (light flowing along SVG lines, line drawing, gradient borders, scroll reveals) |
 | [claude-md-block.md](claude-md-block.md) | the agent | The rules block added to your agent's instruction file |
 | [hooks/frontend-kit-reminder.sh](hooks/frontend-kit-reminder.sh) | Claude Code | Small automatic reminder that starts the workflow when a screen file is touched |

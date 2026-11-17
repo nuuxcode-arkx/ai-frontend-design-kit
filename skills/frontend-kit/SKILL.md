@@ -19,6 +19,7 @@ Limits that always hold: never create an account, log in, pay, or send the user'
 
 Other files in this folder, opened only when needed:
 
+- `sweep.md`: the tool sweep. One table of every job a screen can have (43 of them), the signals that switch each job on, its first-choice tool, and how to get a tool at the moment you need it. You walk it once per task, in phase 1.
 - `catalog.md`: every tool by job, with "use when", "advantage" and the install step. Its sections are numbered by job, not by the phases of this file; a table at its top maps one to the other. Open the section for the phase you are in when you need a tool that is not installed or the task is special.
 - `effects.md`: the default tool for each effect, plus working code for effects that need no library. Open it before writing any effect.
 
@@ -48,6 +49,19 @@ Before any visual choice, write this in your notes:
 3. **Content plan:** the sections or regions in order, and for each one its message in real words: the actual headline, the actual labels, the actual data fields. Design follows content. Do not draw boxes and fill them later.
 4. **The main journey:** the steps the person takes to reach the goal (for a landing page: land, understand, trust, act), including what happens after the main button is pressed.
 5. **Conditions:** languages and text direction (left to right, right to left), light, dark or both, and the smallest screen it must work on. If nothing says otherwise: one language as given by the user, left to right, light only, 320 px and up.
+
+## Tool sweep: every job gets its best tool (never skip)
+
+The kit holds about 350 tools and only six are installed at the start. They are worth nothing if you build the page with the same few every time. So, right after the brief:
+
+1. Open `sweep.md` and walk every row. Compare its signals with the brief, the user's exact words and the project files.
+2. Mark each job ON with its tool, or OFF with a reason of a few words. Write this tool plan down; it goes in the receipt.
+3. A tool that is ON and not on this machine: get it now, as `sweep.md` says ("Getting a tool at the moment you need it"). The user's install request already covers every free tool in the catalog, so you do not ask. A missing tool is never a reason to skip a job.
+4. Load each skill at the phase where its job happens.
+
+One tool per job, many jobs per page. A new landing page usually has 15 to 20 jobs ON. If your plan has fewer than 12 for a new page or product, you matched too narrowly: read the signals again. For a small fix, sweep only the rows the change touches.
+
+Later phases name their usual tools. The tool plan wins where it differs, because it was made from this task's signals.
 
 ## Phase 2. Identity: read or create DESIGN.md
 
@@ -249,11 +263,11 @@ Each row adds to the chain. It does not replace it. Install steps are in `catalo
 | Slides or diagrams as HTML | `frontend-slides`, `diagram-design` |
 | The result still looks generated after the gates | `npx --yes designlang slop <URL>`; then one other taste skill as a critic only, never as a second author |
 
-Anything else: open `catalog.md`, go to the phase you are in, read the "use when" column.
+This table is a shortcut for whole kinds of task. The full job-by-job list is `sweep.md`, and you walk it on every task, not only on special ones. For a job in neither, open `catalog.md`, go to the section for that job, and match the `Signals:` in the "Use when" cells.
 
 ## Using more than one tool
 
-Good: one tool per job, chained. A taste skill for direction, a component library for parts, a motion skill for movement, a text skill for copy, a browser for eyes, detectors for gates. That is six or more tools on one screen, and that is the point.
+Good: one tool per job, chained. A taste skill for direction, a component library for parts, a motion skill for movement, a text skill for copy, a browser for eyes, detectors for gates. That is six tools at the least. With the tool sweep a landing page usually ends with 15 to 20, each doing a different job, and that is the point.
 
 Bad: two tools for the same job at the same time. They give conflicting rules.
 
@@ -264,6 +278,9 @@ FRONTEND KIT RECEIPT
 Result: <DONE | PARTIAL: what is missing>
 Task size: <row from step 0>
 1 Brief:      purpose: <one line>   kind: <tool | expressive>   journey: <steps>
+Tool plan:    <n> jobs ON of 43   (one line per job below: number, job, ON tool | OFF reason)
+              added this task: <tools fetched or installed, with version | none>
+              could not use: <tool: reason, what was done by hand | none>
 2 Identity:   DESIGN.md <read | created from ...>            lint: <pass | not run: why>
 3 Direction:  main taste skill: <name, ran | not installed: why>   references: <sites>   sketches: <3, picked which | n/a: why>
               three visual decisions: <composition | type hierarchy | main proof>
@@ -277,4 +294,4 @@ Task size: <row from step 0>
 Not done or not verified: <list, or "nothing">
 ```
 
-Fill every line. "n/a" needs a reason of a few words. Write a tool name on a line only if you ran it in this task. If any required line is "not run" or "not done", the result is PARTIAL and you say so to the user.
+Fill every line. "n/a" needs a reason of a few words. Write a tool name on a line only if you ran it in this task. A job marked ON in the tool plan whose tool was not used makes the result PARTIAL. If any required line is "not run" or "not done", the result is PARTIAL and you say so to the user.

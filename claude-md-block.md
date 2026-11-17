@@ -12,7 +12,7 @@ Do it silently: the user did not ask for this workflow and may not be technical.
 
 The chain, in order. Each phase uses a different tool and leaves evidence:
 
-1. **Brief and content:** what the screen is for, who uses it, the real words of each section, the main journey.
+1. **Brief and content:** what the screen is for, who uses it, the real words of each section, the main journey. Then the **tool sweep**: walk every job in the skill's `sweep.md`, switch each one on or off from the signals, and get any tool that is on and missing right then (free tools only, no account). Every job gets its best tool; never two tools for one job.
 2. **Identity:** read `DESIGN.md`. For a new page or product, create it if missing; for a small fix, follow the styles already in the code. Only its tokens are allowed. An existing brand wins over any taste rule here.
 3. **Direction:** the one main taste skill plus real references. New page with no direction: 3 quick sketches of the first screen that truly differ in layout and hierarchy, same real content; keep the one a new visitor understands fastest. Then write its three visual decisions: composition, type hierarchy, how it shows the product.
 4. **Build:** layout from the content, then theme, then components from the library, then every state. A product page shows the product itself on its first screen (its interface, its result, or a truthful diagram), not decoration.
@@ -22,7 +22,7 @@ The chain, in order. Each phase uses a different tool and leaves evidence:
 8. **Gates** (those that apply to the task size): `npx --yes impeccable detect <URL>`, `npx --yes designlang verify-ui <URL> --brand DESIGN.md`, `npx --yes lighthouse <URL> --only-categories=accessibility,performance --quiet`, zero console errors.
 9. **Report:** save the receipt to `.frontend-kit/receipt.md`, show screenshots, tell the user the result in plain words, and say what you could not check. A UI task without the receipt is not finished.
 
-One tool per job, several jobs per screen. Never two taste skills steering at once. For a special task (landing page, dashboard, Figma file, mobile, 3D, charts, brand) check the router table in the skill, then `catalog.md` for the phase you are in.
+One tool per job, many jobs per screen: a new landing page usually uses 15 to 20 tools. Never two taste skills steering at once. The catalog (`catalog.md`, about 350 tools) lists every other choice, with the signals that call for each.
 
 ### Never ship these (signs of generated design)
 - Inter, Roboto, Arial or system font as the only typeface with no reason (a native app or an existing brand is a reason).

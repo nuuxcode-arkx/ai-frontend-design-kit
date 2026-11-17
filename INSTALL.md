@@ -45,9 +45,9 @@ Every `npx` command below starts with `npx --yes` so that npm never stops to ask
 npx --yes skills add nuuxcode-arkx/ai-frontend-design-kit --skill frontend-kit -g -y -a <agent flag from step 1>
 ```
 
-Fallback: copy the whole folder `skills/frontend-kit/` from this repository into the global skills folder. It has three files and all three are needed: `SKILL.md`, `catalog.md`, `effects.md`.
+Fallback: copy the whole folder `skills/frontend-kit/` from this repository into the global skills folder. It has four files and all four are needed: `SKILL.md`, `sweep.md`, `catalog.md`, `effects.md`.
 
-Then confirm that the folder `frontend-kit` with those three files is in the global skills folder.
+Then confirm that the folder `frontend-kit` with those four files is in the global skills folder.
 
 ## Step 3. Install the core chain, for all projects
 
@@ -65,6 +65,8 @@ Each row solves a problem the others do not. Install all of them. Add `-g -y` an
 The checks need no install. The workflow runs them with `npx --yes` when it needs them: `impeccable detect`, `designlang verify-ui`, `@google/design.md lint`, `lighthouse`, `modern-web-guidance`.
 
 The main taste skill is `impeccable` unless the user asked for another one. Use exactly one main taste skill. `frontend-design` is not a second one: it only sets the habit of choosing a direction first, and where the two disagree the main taste skill wins. Install it with the `skills` command in the table, not with its own installer (`npx impeccable install`): in our test on 17 Nov 2026 that installer waited at "Downloading" with no end, even with its no-question flags.
+
+The other tools of the catalog (about 340) are not installed now, and they are not forgotten: the workflow walks a list of every job on each task and gets the right tool at the moment a job needs it. That keeps the skill list short and still puts every tool within reach.
 
 Project-level pieces (a `DESIGN.md`, a component library, fonts, icons) are NOT installed now. The workflow skill sets them up by itself the first time you do UI work in a project.
 
@@ -107,7 +109,7 @@ On Windows without a POSIX shell, skip this step and say so in the report.
 FRONTEND KIT INSTALL REPORT   <date>
 Agent: <name and version>     Node.js: <version>
 Instruction file: <path>  (backup: <path>)     Skills folder: <path>
-Workflow skill (frontend-kit): <installed, 3 files | failed: error>
+Workflow skill (frontend-kit): <installed, 4 files | failed: error>
 1 frontend-design ........ <installed | already there | failed: error>
 2 impeccable ............. <status>
 3 web-design-guidelines .. <status>
