@@ -13,13 +13,13 @@ Do it silently: the user did not ask for this workflow and may not be technical.
 The chain, in order. Each phase uses a different tool and leaves evidence:
 
 1. **Brief and content:** what the screen is for, who uses it, the real words of each section, the main journey.
-2. **Identity:** read `DESIGN.md` (create it if missing). Only its tokens are allowed. An existing brand wins over any taste rule here.
-3. **Direction:** the one main taste skill plus real references. New page with no direction: 3 quick sketches of the first screen, score them, continue with the best.
-4. **Build:** layout from the content, then theme, then components from the library, then every state. A product page shows a real visual on its first screen.
-5. **Motion and effects:** interaction motion on every interface (under 300 ms for feedback). Then choose by yourself whether the page gets signature effects (3D, scroll storytelling, parallax, SVG with light flowing along lines, text reveals, animated backgrounds): yes for landing, startup, product and "futuristic" pages; no for app screens, forms and reading pages. One hero effect per screen, a static version for reduced motion, smooth on a phone.
+2. **Identity:** read `DESIGN.md`. For a new page or product, create it if missing; for a small fix, follow the styles already in the code. Only its tokens are allowed. An existing brand wins over any taste rule here.
+3. **Direction:** the one main taste skill plus real references. New page with no direction: 3 quick sketches of the first screen that truly differ in layout and hierarchy, same real content; keep the one a new visitor understands fastest. Then write its three visual decisions: composition, type hierarchy, how it shows the product.
+4. **Build:** layout from the content, then theme, then components from the library, then every state. A product page shows the product itself on its first screen (its interface, its result, or a truthful diagram), not decoration.
+5. **Motion and effects:** interaction motion on every interface (under 300 ms for feedback). Then choose by yourself whether the page gets signature effects (3D, scroll storytelling, parallax, SVG with light flowing along lines, text reveals, animated backgrounds): yes for landing, startup and product pages; no for app screens, forms and reading pages, where a "futuristic" brief is carried by type, color, light and precise interaction motion. Every effect has a job (explain an object, show a flow, reveal a sequence). One hero effect per screen, a static version for reduced motion, smooth on a phone.
 6. **Copy:** every string does its job and does not sound generated.
-7. **See:** serve the page, screenshot it at 390, 768 and 1280 px, look, use the main journey with mouse and keyboard, fix, repeat. Never skip.
-8. **Gates:** `npx --yes impeccable detect <URL>`, `npx --yes designlang verify-ui <URL> --brand DESIGN.md`, `npx --yes lighthouse <URL> --only-categories=accessibility,performance --quiet`, zero console errors.
+7. **See:** serve the page, screenshot it at 390, 768 and 1280 px, look, use the main journey with mouse and keyboard, fix, repeat. End with a designer's critique against the brief: name the three biggest problems and fix them. Never skip.
+8. **Gates** (those that apply to the task size): `npx --yes impeccable detect <URL>`, `npx --yes designlang verify-ui <URL> --brand DESIGN.md`, `npx --yes lighthouse <URL> --only-categories=accessibility,performance --quiet`, zero console errors.
 9. **Report:** save the receipt to `.frontend-kit/receipt.md`, show screenshots, tell the user the result in plain words, and say what you could not check. A UI task without the receipt is not finished.
 
 One tool per job, several jobs per screen. Never two taste skills steering at once. For a special task (landing page, dashboard, Figma file, mobile, 3D, charts, brand) check the router table in the skill, then `catalog.md` for the phase you are in.
@@ -36,7 +36,7 @@ One tool per job, several jobs per screen. Never two taste skills steering at on
 - The default grey component theme, unchanged.
 - Glass blur panels and "New" or "Beta" pills with no purpose.
 - Extra labels and descriptions under every heading. Let the layout do the explaining.
-- More than 4 font sizes on one screen; small all-caps headings everywhere.
+- Font sizes with no scale behind them; small all-caps headings everywhere.
 - Filler text: "Elevate", "Seamless", "Unlock", "Supercharge".
 - Invented numbers, logos, testimonials or promises; lorem ipsum. (Sample data in a demo is fine when the page labels it as sample data.)
 - Hover-only actions, missing focus rings, text under 4.5:1 contrast, touch targets under 44 px.

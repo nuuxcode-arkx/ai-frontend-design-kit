@@ -1,6 +1,6 @@
 # AI FRONTEND DESIGN KIT
 
-**Install once. After that, your AI coding agent follows a real design workflow on every screen it builds, by itself, without you asking.** Made for Claude Code and Codex. Other agents (Cursor, Gemini CLI) can use the same files, with less automation.
+**Install once. After that, your AI coding agent is instructed to follow a design workflow each time it builds or changes a screen, without you asking.** It is an instruction plus a reminder, not a guarantee: in our tests on 17 Nov 2026 the agent followed it on plain requests such as "make me a landing page", and each task ends with a receipt that says what was checked and what was not. Made for Claude Code and Codex. Other agents (Cursor, Gemini CLI) can use the same files, with less automation.
 
 ## INSTALL (FOR PEOPLE)
 

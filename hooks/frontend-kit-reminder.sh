@@ -15,14 +15,19 @@ esac
 # Session id is used in a file name: keep only safe characters.
 sid=$(field session_id | tr -cd 'A-Za-z0-9_-')
 dir="$HOME/.claude/frontend-kit-state"
+# The state folder is private, and a link planted in it is never followed.
+[ -L "$dir" ] && exit 0
 mkdir -p "$dir" 2>/dev/null || exit 0
+chmod 700 "$dir" 2>/dev/null
 flag="$dir/${sid:-nosession}"
+[ -L "$flag" ] && exit 0
 
 # Recent reminder for this session: stay silent.
 if [ -f "$flag" ] && [ -z "$(find "$flag" -mmin +30 2>/dev/null)" ]; then
   exit 0
 fi
-: > "$flag"
+rm -f "$flag"
+( set -C; : > "$flag" ) 2>/dev/null || exit 0
 # Housekeeping: drop state files older than a week.
 find "$dir" -type f -mtime +7 -exec rm -f {} + 2>/dev/null
 

@@ -4,7 +4,7 @@ Open this file when a task adds a 3D scene, scroll effect, SVG animation, page t
 Read the Layer B rules in SKILL.md first. Use one hero effect per screen, and give every effect its own visible static state for reduced motion.
 Any effect that moves on its own for more than 5 seconds (loops, marquees, flowing light) gets a visible pause button that works by keyboard and touch; the marquee recipe (i) shows the pattern. Hover-only pause is an extra, not the control.
 Restyle every effect with the DESIGN.md tokens (colors, radii, easing); never keep a demo's own palette.
-Tools are listed in catalog.md phase 5; this file holds the recipes that need no library. The single authority for default tools is the table in SKILL.md phase 4; the table below agrees with it.
+Tools are listed in catalog.md section 5; this file holds the recipes that need no library. The single authority for default tools is the table in SKILL.md phase 5; the table below agrees with it.
 
 ## Default tool per job
 
@@ -175,7 +175,7 @@ Animate `clip-path: inset()` from fully hidden to fully shown. It works on any e
 ```
 
 ### (h) Cursor spotlight with pointer variables
-On `pointermove` write the pointer position into two CSS variables; the radial gradient reads them. The listener runs only with a fine pointer that can hover and no reduced-motion preference, and it is added or removed when that preference changes, so touch and reduced-motion users see a centered spotlight. In a component, return `disposeSpotlight` from the cleanup hook.
+On `pointermove` write the pointer position into two CSS variables; the radial gradient reads them. The listener runs only with a fine pointer that can hover and no reduced-motion preference, and it is added or removed when that preference changes, so touch and reduced-motion users see a centered spotlight; on a hybrid device with a fine mouse, touch events are ignored and reset the spotlight to the center. In a component, return `disposeSpotlight` from the cleanup hook.
 ```html
 <div class="spot">Move your pointer here</div>
 ```
@@ -192,6 +192,11 @@ On `pointermove` write the pointer position into two CSS variables; the radial g
 const spot = document.querySelector('.spot');
 const allowed = matchMedia('(prefers-reduced-motion: no-preference) and (pointer: fine) and (hover: hover)');
 function moveSpot(e) {
+  if (e.pointerType === 'touch') {
+    spot.style.removeProperty('--x');
+    spot.style.removeProperty('--y');
+    return;
+  }
   const r = spot.getBoundingClientRect();
   spot.style.setProperty('--x', `${e.clientX - r.left}px`);
   spot.style.setProperty('--y', `${e.clientY - r.top}px`);
