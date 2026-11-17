@@ -55,9 +55,11 @@ Before any visual choice, write this in your notes:
 The kit holds about 350 tools and only six are installed at the start. They are worth nothing if you build the page with the same few every time. So, right after the brief:
 
 1. Open `sweep.md` and walk every row. Compare its signals with the brief, the user's exact words and the project files.
-2. Mark each job ON with its tool, or OFF with a reason of a few words. Write this tool plan down; it goes in the receipt.
+2. Mark each job ON with its tool, or OFF with a reason of a few words. Save this tool plan as `.frontend-kit/tool-plan.md` in the project **before you write any screen file**. The plan file is the proof the sweep happened: the reminder looks for it, and a task with no plan file is PARTIAL whatever else went well.
 3. A tool that is ON and not on this machine: get it now, as `sweep.md` says ("Getting a tool at the moment you need it"). The user's install request already covers every free tool in the catalog, so you do not ask. A missing tool is never a reason to skip a job.
 4. Load each skill at the phase where its job happens.
+
+The sweep takes one read of one table. It is never skipped to save effort, and the light form for one-off pages does not shorten it: a quick HTML demo is exactly where the unused tools make the difference.
 
 One tool per job, many jobs per page. A new landing page usually has 15 to 20 jobs ON. If your plan has fewer than 12 for a new page or product, you matched too narrowly: read the signals again. For a small fix, sweep only the rows the change touches.
 

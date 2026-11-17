@@ -11,9 +11,10 @@ Not the rule: using many tools for the same job. Two component libraries or two 
 1. Read every row below. For each one, compare the "Applies when" signals with the brief, the user's words, and what you see in the project (`package.json`, the files, the page itself).
 2. A signal matches: the job is ON. Take the default tool. If the stack or the need differs (Vue, plain HTML, an existing brand), open the catalog section named in the row and pick by the `Signals:` in its "Use when" cells.
 3. No signal matches: the job is OFF. Write one reason ("no numbers on this page").
-4. Write the tool plan before you build: one line per job, ON with its tool or OFF with its reason. It goes in the receipt.
+4. Write the tool plan before you build: one line per job, ON with its tool or OFF with its reason. Save it as `.frontend-kit/tool-plan.md` in the project before you write any screen file, and copy it into the receipt at the end.
 5. A tool that is ON and not on this machine: get it now, with the steps under "Getting a tool at the moment you need it". Do not skip a job because its tool is missing.
 6. Load each skill at the phase where its job happens, not all at the start.
+7. Be exact in the plan. `ON <tool>` means you used that tool. A job you did without its tool is `ON by hand: <reason>`. "Not installed" is not a reason: reading a skill into `.frontend-kit/tools/` is not an install, it changes nothing outside the project, and it is allowed even when the user said to install nothing. Valid reasons: the tool needs an account or a paid plan, it does not fit the stack, or the job is too small for it (say why).
 
 **What counts as done.** Every row has an answer. A job that is ON was done with its tool, or the receipt says why the tool could not be used and what you did by hand instead. For a new page or product, fewer than 12 jobs ON usually means you matched too narrowly: read the signals again.
 
@@ -116,7 +117,7 @@ The user's install request covers every free tool in `catalog.md`. You do not as
 ## The tool plan (copy into the receipt)
 
 ```
-Tool plan: <n> jobs ON of 43
+Tool plan: <n> jobs ON of 43 (<n> with their tool, <n> by hand)
  1 Direction ......... ON  impeccable
  4 Match a site ...... OFF no reference site given
  7 Components ........ ON  shadcn/ui (added to the project)
