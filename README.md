@@ -1,6 +1,6 @@
 # AI FRONTEND DESIGN KIT
 
-**Install once. After that, your AI coding agent is instructed to follow a design workflow each time it builds or changes a screen, without you asking.** It is an instruction plus a reminder, not a guarantee: in our tests on 17 Nov 2026 the agent followed it on plain requests such as "make me a landing page", and each task ends with a receipt that says what was checked and what was not. Made for Claude Code and Codex. Other agents (Cursor, Gemini CLI) can use the same files, with less automation.
+**Install once. After that, your AI coding agent is instructed to follow a design workflow each time it builds or changes a screen, without you asking.** It is an instruction plus a reminder, not a guarantee: in our tests on 17 Nov 2026 fresh agents followed most of it on plain requests such as "make me a landing page" (details under LIMITS), and each task ends with a receipt that says what was checked and what was not. Made for Claude Code and Codex. Other agents (Cursor, Gemini CLI) can use the same files, with less automation.
 
 ## INSTALL (FOR PEOPLE)
 
@@ -14,7 +14,7 @@ That is all. The agent installs the workflow, the design skills and a browser it
 
 ## EVERY JOB GETS ITS BEST TOOL
 
-The kit knows about 350 tools. Installing all of them would flood the agent, and installing six would waste the rest. So the agent does a **tool sweep** on every task: it walks a list of 43 jobs (direction, references, colors, fonts, components, icons, images, charts, motion, 3D, scroll, text effects, copy, checks and more), switches each job on or off from your words and your project, and fetches the right tool at the moment a job needs it. A landing page usually ends with 15 to 20 tools, each doing a different job. One tool per job, never two fighting over the same one. The receipt lists which tools were used and why.
+The kit knows about 350 tools. Installing all of them would flood the agent, and installing six would waste the rest. So the agent does a **tool sweep** on every task: it walks a list of 43 jobs (direction, references, colors, fonts, components, icons, images, charts, motion, 3D, scroll, text effects, copy, checks and more), switches each job on or off from your words and your project, and fetches the right tool at the moment a job needs it: a skill is read into the project for that task, never installed for all projects. In three real tests the agent answered all 43 jobs. The number of tools depends on the jobs the page really needs. One tool per job, never two fighting over the same one. The receipt shows which tools ran, where the browser or the project's own code was enough, and which checks could not run.
 
 ## WHAT CHANGES AFTER INSTALL
 
@@ -44,11 +44,11 @@ The look this is built to avoid has a name, "AI slop": Inter font, purple gradie
 | [skills/frontend-kit/catalog.md](skills/frontend-kit/catalog.md) | the agent | Every tool by job. Each row has concrete signals (words you say, things seen in the code) and an example, the advantage, and the install command |
 | [skills/frontend-kit/effects.md](skills/frontend-kit/effects.md) | the agent | The default tool for each effect, plus working code for effects that need no library (light flowing along SVG lines, line drawing, gradient borders, scroll reveals) |
 | [claude-md-block.md](claude-md-block.md) | the agent | The rules block added to your agent's instruction file |
-| [hooks/frontend-kit-reminder.sh](hooks/frontend-kit-reminder.sh) | Claude Code | Small automatic reminder that starts the workflow when a screen file is touched |
+| [hooks/frontend-kit-reminder.sh](hooks/frontend-kit-reminder.sh) | Claude Code | After-edit reminder for recognized screen files in Claude Code |
 
-## THE CORE TOOLS (ALWAYS USED)
+## CORE SKILLS, BROWSER AND ON-DEMAND CHECKS
 
-Each one solves a problem the others do not.
+Each one solves a problem the others do not. The first six rows are set up at install (a browser the agent already has can fill the sixth). The other rows run through `npx --yes` when a task needs them.
 
 | Tool | Its job in the chain |
 |---|---|
@@ -86,7 +86,7 @@ Techniques shared on X by people who build with agents every day. The workflow a
 
 - The kit installs tools written by other people. The installer tells the agent to read each one before and after installing it, and never to create accounts, pay or send your files anywhere. You still run them at your own risk.
 - To remove the kit, tell your agent: "follow the Uninstall section of INSTALL.md in the frontend design kit".
-- The install was tested piece by piece (the skill installs, the reminder script, one page built by a fresh agent). A full install by a fresh agent on a clean computer has not been tested yet.
+- The install was tested piece by piece (the skill installs, the reminder script, pages built by fresh agents). Of the fresh-agent runs on a plain landing-page prompt, the first skipped the sweep; later runs saved a plan and used more of the workflow, but fetched no new skill. Full clean-install-to-first-task checks for Claude Code and Codex are pending.
 - The automatic reminder works in Claude Code. Other agents rely on the rules block and the skill description.
 - A workflow raises the floor; it does not replace a designer. The final yes on a screen is yours.
 - Star counts and install commands were checked on 17 Nov 2026 and can change.

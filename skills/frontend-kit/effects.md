@@ -5,6 +5,7 @@ Read the Layer B rules in SKILL.md first. Use one hero effect per screen, and gi
 Any effect that moves on its own for more than 5 seconds (loops, marquees, flowing light) gets a visible pause button that works by keyboard and touch; the marquee recipe (i) shows the pattern. Hover-only pause is an extra, not the control.
 Restyle every effect with the DESIGN.md tokens (colors, radii, easing); never keep a demo's own palette.
 Tools are listed in catalog.md section 5; this file holds the recipes that need no library. The single authority for default tools is the table in SKILL.md phase 5; the table below agrees with it.
+Before a library effect, check the current version (`npm view <package> version`) and pin it, also in a CDN address; a custom three.js scene or a GSAP story first needs its skill read, as sweep.md jobs 23 and 25 say.
 
 ## Default tool per job
 
