@@ -40,7 +40,7 @@ A tool in `catalog.md` that needs an account, an API key or a paid plan is only 
 
 Every `npx` command below starts with `npx --yes` so that npm never stops to ask a question.
 
-**Files "from this repository".** When a step names a file of this repository (`claude-md-block.md`, `hooks/frontend-kit-reminder.sh`), fetch it from `https://raw.githubusercontent.com/nuuxcode-arkx/ai-frontend-design-kit/main/<path>`, or read it from a local copy of the repository if you have one.
+**Files "from this repository".** When a step names a file of this repository (`claude-md-block.md`, `hooks/frontend-kit-reminder.sh`, `hooks/frontend-kit-brief-check.sh`), fetch it from `https://raw.githubusercontent.com/nuuxcode-arkx/ai-frontend-design-kit/main/<path>`, or read it from a local copy of the repository if you have one.
 
 ## Step 2. Install the kit's own workflow skill, for all projects
 
@@ -97,7 +97,22 @@ This reminds you of the workflow when you touch a screen file, even when nobody 
 }
 ```
 
-3. Check that the file is still valid JSON after your edit. The `~` in the command is intended: the shell that runs the hook expands it.
+3. Add the brief check the same way. A main session often hands screen work to a helper agent, and a helper only knows what its brief says. This check refuses a brief that looks like screen work and does not name the `frontend-kit` skill. Copy `hooks/frontend-kit-brief-check.sh` to `~/.claude/hooks/frontend-kit-brief-check.sh` and merge this entry:
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent|Task",
+        "hooks": [{ "type": "command", "command": "sh ~/.claude/hooks/frontend-kit-brief-check.sh" }]
+      }
+    ]
+  }
+}
+```
+
+4. Check that the file is still valid JSON after your edit. The `~` in the commands is intended: the shell that runs the hook expands it.
 
 On Windows without a POSIX shell, skip this step and say so in the report.
 
@@ -124,7 +139,7 @@ Smoke test: screenshots <ok | failed>, impeccable detect <ran | failed: error>, 
 Manifest (what this kit added, this run and earlier runs, per agent; the only things uninstall may remove):
   skills: <names added by this install, per agent>
   browser tool: <name added | none>
-  files: <reminder script path | none>   settings entry: <added | none>   block: <file path>
+  files: <reminder script path | none>, <brief check script path | none>   settings entries: <reminder added | none>, <brief check added | none>   block: <file path>
   installer bookkeeping: <~/.agents/.skill-lock.json created | already there> (the `skills` installer's own list; harmless, `skills remove` keeps it up to date)
 Removed or refused: <list with reason, or "nothing">
 Failed: <list with error, or "nothing">
@@ -136,7 +151,7 @@ Result: <COMPLETE | PARTIAL: what is missing>
 Remove only what the manifest in `~/.frontend-kit-install-report.txt` lists. Anything marked "already there" belonged to the user before the install and stays.
 
 1. If the manifest lists the block: in the instruction file, delete the two `frontend-kit` marker lines and the text between them. Change nothing else. Do not put the `.before-frontend-kit` copy back over the file: the user may have edited the file since the install, and that would erase their edits. Keep the copy.
-2. If the manifest lists the settings entry and the script: in `~/.claude/settings.json`, remove only the hook entry whose command is `sh ~/.claude/hooks/frontend-kit-reminder.sh`, then delete that script and the folder `~/.claude/frontend-kit-state`. Check the file is still valid JSON.
+2. If the manifest lists the settings entry and the script: in `~/.claude/settings.json`, remove only the hook entry whose command is `sh ~/.claude/hooks/frontend-kit-reminder.sh`, then delete that script and the folder `~/.claude/frontend-kit-state`. Check the file is still valid JSON. Do the same for the entry whose command is `sh ~/.claude/hooks/frontend-kit-brief-check.sh` and its script.
 3. For each skill on the manifest of the selected agent: `npx --yes skills remove <name> -g -y <skills flag>`.
 4. Remove the browser tool only if the manifest lists it, with the agent's MCP remove command.
 5. If there is no manifest, or an item on it was changed since the install, list what you found and ask the user before removing anything. Leave the other agent's entries and every unrelated setting in place, and check they are still there.

@@ -45,6 +45,7 @@ The look this is built to avoid has a name, "AI slop": Inter font, purple gradie
 | [skills/frontend-kit/effects.md](skills/frontend-kit/effects.md) | the agent | The default tool for each effect, plus working code for effects that need no library (light flowing along SVG lines, line drawing, gradient borders, scroll reveals) |
 | [claude-md-block.md](claude-md-block.md) | the agent | The rules block added to your agent's instruction file |
 | [hooks/frontend-kit-reminder.sh](hooks/frontend-kit-reminder.sh) | Claude Code | After-edit reminder for recognized screen files in Claude Code |
+| [hooks/frontend-kit-brief-check.sh](hooks/frontend-kit-brief-check.sh) | Claude Code | Refuses a brief that hands screen work to a helper agent without naming the workflow |
 
 ## CORE SKILLS, BROWSER AND ON-DEMAND CHECKS
 

@@ -1,7 +1,7 @@
 <!-- frontend-kit:start -->
 ## Frontend and design work
 
-**Before writing or changing any screen, page, component, style, animation or on-screen text, load the `frontend-kit` skill and follow its chain.** This includes one-off HTML pages, demos, prototypes and mockups, in any project, even when the user does not mention design. It applies to you and to every subagent you start for UI work: put this sentence in their brief.
+**Before writing or changing any screen, page, component, style, animation or on-screen text, load the `frontend-kit` skill and follow its chain.** This includes one-off HTML pages, demos, prototypes and mockups, in any project, even when the user does not mention design. It applies to you and to every helper agent you start: a brief for screen work must contain this sentence word for word, because a helper only knows what its brief says. The `frontend-design` skill alone is not this workflow. A brief that writes no screen says "UI: none".
 
 Main taste skill: <fill in at install, default impeccable>
 Skill folder: <fill in at install, the full path of the installed frontend-kit folder>
